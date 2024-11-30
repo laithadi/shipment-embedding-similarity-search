@@ -43,13 +43,3 @@ The dataset contains information about a list of orders. Each row provides detai
   - **Order Status** (e.g., Delivered, Pending)
 
 For more detailed exploratory data analysis (EDA), check out [eda.ipynb](/exploratory_data_analysis/eda.ipynb).
-
-[
-    "ipykernel>=6.29.5",
-    "matplotlib>=3.9.3",
-    "pandas>=2.2.3",
-    "pytest>=8.3.3",
-    "seaborn>=0.13.2",
-    "torch>=2.5.1",
-    "transformers>=4.46.3",
-]
