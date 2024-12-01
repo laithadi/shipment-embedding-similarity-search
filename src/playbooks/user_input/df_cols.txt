@@ -1,3 +1,4 @@
 Priority
 Carrier_name
 Product_Category
+Days_from_shipment_to_delivery

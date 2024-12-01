@@ -9,7 +9,7 @@ root_path = pathlib.Path.cwd()
 sys.path.append(str(root_path))
 
 from src.ai_utils import DistilBertTextEmbedding
-from src.utils import filter_data_by_cols, process_user_input
+from src.utils import filter_data_by_cols, process_user_input, data_cols_types
 
 # logger setup
 logging.basicConfig()
@@ -43,6 +43,7 @@ if __name__ == "__main__":
         filepath_or_buffer=data_path,
         delimiter=";",
     )
+    # TODO: remove the first column
     logger.info(f"\tDone loading the data. Data size: {df_raw.shape[0]} rows, {df_raw.shape[1]} columns.\n")
     
     # step 2: get the selected columns to filter the DataFrame
@@ -69,6 +70,9 @@ if __name__ == "__main__":
 
         # iterate over columns in the DataFrame
         for column in df.columns:
+
+            # TODO: using data_cols_types, embed column values based on type
+
             # embed the column's unique values (e.g., 'Product_Category' values)
             column_values = df[column].unique()
             for value in column_values:
