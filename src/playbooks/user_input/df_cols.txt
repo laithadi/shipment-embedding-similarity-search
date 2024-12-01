@@ -1,0 +1,4 @@
+Actual_Arrival_Date
+Delivery_distance
+Status
+Priority
