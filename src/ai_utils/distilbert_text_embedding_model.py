@@ -46,7 +46,7 @@ class DistilBertTextEmbedding(HuggingFaceEmbedding):
             Exception: If an error occurs during text embedding.
         """
         try:
-            logger.info(f"Encoding text: {text[:50]}...")  # log only the first 50 characters
+            # logger.info(f"Encoding text: {text[:50]}...")  # log only the first 50 characters
             return self.encode(text)
         except Exception as eee:
             logger.error(f"Error embedding text: {str(eee)}")
