@@ -9,7 +9,13 @@ root_path = pathlib.Path.cwd()
 sys.path.append(str(root_path))
 
 from src.ai_utils import DistilBertTextEmbedding
-from src.utils import filter_data_by_cols, process_user_input, data_cols_types
+from src.utils import (
+    filter_data_by_cols, 
+    process_user_input, 
+    data_cols_types, 
+    get_column_type,
+    convert_columns_to_string_with_column_name,
+    )
 
 # logger setup
 logging.basicConfig()
@@ -22,7 +28,9 @@ user_input_path = pathlib.Path.cwd() / "src" / "playbooks" / "user_input" / "use
 user_input_df_cols = pathlib.Path.cwd() / "src" / "playbooks" / "user_input" / "df_cols.txt"
 
 # model initialization
-model = DistilBertTextEmbedding()
+textual_model = DistilBertTextEmbedding()
+numerical_model = ...
+date_model = ...
 
 if __name__ == "__main__":
     """
@@ -52,7 +60,8 @@ if __name__ == "__main__":
 
     # filter the DataFrame
     logger.info(f"\tFiltering DataFrame to include only the selected columns: {selected_cols}")
-    df = filter_data_by_cols(df=df_raw, cols=selected_cols)
+    df_filtered_cols = filter_data_by_cols(df=df_raw, cols=selected_cols)
+    df = convert_columns_to_string_with_column_name(df= df_filtered_cols)
     logger.info(f"\tDone filtering the data. New data size: {df.shape[0]} rows, {df.shape[1]} columns.\n")
 
     # step 3: get the list of queries
@@ -63,20 +72,17 @@ if __name__ == "__main__":
     # step 4: process one query at a time
     query_results = []
     for q in user_input:
-        embedded_query = model.embed_text(q.lower())  # embed the query
+        embedded_query = textual_model.embed_text(q.lower())  # embed the query
         best_match = None
         best_score = -1
         col_res = {}
 
         # iterate over columns in the DataFrame
         for column in df.columns:
-
-            # TODO: using data_cols_types, embed column values based on type
-
             # embed the column's unique values (e.g., 'Product_Category' values)
             column_values = df[column].unique()
             for value in column_values:
-                embedded_value = model.embed_text(value.lower())  # embed the column value
+                embedded_value = textual_model.embed_text(value.lower())  # embed the column value
 
                 # compute cosine similarity between query and column value embeddings
                 similarity_score = np.dot(embedded_query, embedded_value) / (
@@ -106,8 +112,8 @@ if __name__ == "__main__":
 
         # store the results for this query into the final query_results list
         query_results.append({
-            "column_name": column_name,
-            "value": value,
+            "column_name": f_col_name,
+            "value": f_value,
             "row_ids": [f'row{row}' for row in adjusted_rows],
             "best_score": f_best_score
         })

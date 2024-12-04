@@ -1,2 +1,5 @@
 apparel products
 UPS
+maximum days from shipment to delivery
+minimum days from shipment to delivery 
+shipment to delivery days less than 5
