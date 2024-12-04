@@ -8,10 +8,18 @@ USER_DF_COLS_INPUT = pathlib.Path.cwd() / "src" / "playbooks" / "user_input" / "
 OUTPUT_FILE_DIR = pathlib.Path.cwd() / "src" / "playbooks" / "outputs" 
 SIMILARITY_CALC_RES_DIR = pathlib.Path.cwd() / "src" / "playbooks" / "similarity_calcs_res" 
 
-filename = generate_versioned_filename(directory= OUTPUT_FILE_DIR)
+o_filename = generate_versioned_filename(
+    directory= OUTPUT_FILE_DIR,
+    prefix= "results_",
+    )
 
-OUTPUT_FILE_PATH = OUTPUT_FILE_DIR / f"results_{filename}"
-SIMILARITY_CALC_RES_PATH = SIMILARITY_CALC_RES_DIR / f"detailed_summary_{filename}"
+cs_filename = generate_versioned_filename(
+    directory= SIMILARITY_CALC_RES_DIR,
+    prefix= "detailed_summary_",
+    )
+
+OUTPUT_FILE_PATH = OUTPUT_FILE_DIR / o_filename
+SIMILARITY_CALC_RES_PATH = SIMILARITY_CALC_RES_DIR / cs_filename
 
 ORIGINAL_FILENAME_KEY = "original_filename"
 VALUE_KEY = "value"

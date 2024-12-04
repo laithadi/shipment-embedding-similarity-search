@@ -23,14 +23,15 @@ def generate_versioned_filename(directory: pathlib.Path, prefix: str = "", suffi
     directory.mkdir(parents= True, exist_ok= True)
 
     # get current date and time in the format YYYYMMDD_HHMMSS
+    current_date = datetime.datetime.now().strftime("%Y%m%d")
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    # regex to match files with the pattern: YYYYMMDD_HHMMSS_version#.json
-    pattern = re.compile(rf"{prefix}{current_time}_v(\d+){suffix}")
+    # regex to match files with the pattern: YYYYMMDD_*_v#.json
+    pattern = re.compile(rf"{prefix}{current_date}_.*_v(\d+){suffix}")
 
     # find all matching files in the directory
-    existing_files = [f.name for f in directory.glob(f"{prefix}{current_time}_v*{suffix}")]
-    
+    existing_files = [f.name for f in directory.glob(f"{prefix}{current_date}_*_v*{suffix}")]
+
     # extract version numbers
     versions = [int(pattern.match(f).group(1)) for f in existing_files if pattern.match(f)]
 
