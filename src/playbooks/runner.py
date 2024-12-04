@@ -15,6 +15,10 @@ from src.playbooks.default_runner_configs import (
     USER_QUERY_INPUT,
     USER_DF_COLS_INPUT,
     OUTPUT_FILE_PATH,
+    SIMILARITY_CALC_RES_PATH,
+    ORIGINAL_FILENAME_KEY,
+    VALUE_KEY,
+    SCORE_KEY,
 )
 from src.utils import (
     add_string_version_columns_with_column_name,
@@ -22,6 +26,7 @@ from src.utils import (
     find_best_match,
     get_overall_best_result,
     process_user_input,
+    NumpyEncoder,
 )
 
 # logger setup
@@ -77,6 +82,7 @@ if __name__ == "__main__":
 
     # step 4: process one query at a time
     query_results = []
+    detailed_record = {}
     for q in user_input:
         logger.info(f"now processing user query: {q}")  
         embedded_query = textual_model.embed_text(q.lower())  # embed the query
@@ -111,11 +117,16 @@ if __name__ == "__main__":
             # mark the column as processed
             processed_columns.add(original_column)
             col_res[original_column] = best_match  # use the original column name as the key
+            detailed_record[q] = col_res
 
         # determine the overall best result across columns
         overall_best_result = get_overall_best_result(col_res)
         if overall_best_result:
-            f_col_name, f_value, f_best_score = overall_best_result
+            f_col_name, f_value, f_best_score = (
+                overall_best_result[ORIGINAL_FILENAME_KEY],
+                overall_best_result[VALUE_KEY],
+                overall_best_result[SCORE_KEY],
+            )
             matching_rows = df[df[f_col_name] == f_value].index.tolist()
             adjusted_rows = [index + 2 for index in matching_rows]
 
@@ -125,6 +136,7 @@ if __name__ == "__main__":
                 "value": int(f_value) if isinstance(f_value, (np.integer, int)) else float(f_value) if isinstance(f_value, (np.floating, float)) else f_value,  # convert numpy numbers to Python types
                 "row_ids": [f'row{row}' for row in adjusted_rows],
                 "best_score": float(f_best_score),
+                "user_query": q,
             })
 
     # step 6: output the final results
@@ -134,3 +146,9 @@ if __name__ == "__main__":
         json.dump(query_results, f, indent=4)
 
     logger.info(f"query results saved to {OUTPUT_FILE_PATH}")
+
+    # serialize the data - ignore this, i had to hack at it 'till my json displayed nicely in the file
+    ser_detailed_record = str(json.dumps(detailed_record, cls= NumpyEncoder, indent= 4)).strip()
+    with open(SIMILARITY_CALC_RES_PATH, "w") as f:
+        f.write(ser_detailed_record)
+    logger.info(f"similarity calculations saved to {SIMILARITY_CALC_RES_PATH}")

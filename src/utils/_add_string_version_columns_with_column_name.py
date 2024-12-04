@@ -2,7 +2,6 @@ import pandas as pd
 from typing import Any
 import unittest
 
-
 def add_string_version_columns_with_column_name(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds new columns to the DataFrame for non-string columns.
@@ -31,6 +30,7 @@ def add_string_version_columns_with_column_name(df: pd.DataFrame) -> pd.DataFram
     def convert_value(value: Any, col_name: str) -> str:
         """
         Converts a value to a string, prefixed by the cleaned column name.
+        Formats dates in 'Month Day Year' format.
 
         Args:
             value (Any): The original value.
@@ -41,7 +41,8 @@ def add_string_version_columns_with_column_name(df: pd.DataFrame) -> pd.DataFram
         """
         clean_name = clean_column_name(col_name)
         if isinstance(value, pd.Timestamp):
-            value = value.strftime("%Y-%m-%d")  # format dates as 'YYYY-MM-DD'
+            # format dates as 'Month Day Year' (e.g., "January 21 2023")
+            value = value.strftime("%B %d %Y")
         return f"{clean_name} {value}"
 
     # create a copy of the DataFrame to add new columns
@@ -60,13 +61,13 @@ def add_string_version_columns_with_column_name(df: pd.DataFrame) -> pd.DataFram
 
 class TestAddStringVersionColumnsWithColumnName(unittest.TestCase):
     """
-    unit tests for the add_string_version_columns_with_column_name function.
+    Unit tests for the add_string_version_columns_with_column_name function.
     """
 
     @classmethod
     def setUpClass(cls) -> None:
         """
-        sets up a DataFrame for testing.
+        Sets up a DataFrame for testing.
         """
         data = {
             "Numeric_Column": [1, 2, 3],
@@ -79,7 +80,7 @@ class TestAddStringVersionColumnsWithColumnName(unittest.TestCase):
 
     def test_new_columns_added(self) -> None:
         """
-        tests if new columns are added for non-string columns.
+        Tests if new columns are added for non-string columns.
         """
         converted_df = add_string_version_columns_with_column_name(self.df)
         self.assertIn("s_Numeric_Column", converted_df.columns)
@@ -87,21 +88,45 @@ class TestAddStringVersionColumnsWithColumnName(unittest.TestCase):
         self.assertIn("s_Mixed_Column", converted_df.columns)
         self.assertNotIn("s_Text_Column", converted_df.columns)  # text column shouldn't have a new column
 
-    def test_column_name_added_to_values(self) -> None:
+    def test_column_name_and_value_concatenation(self) -> None:
         """
-        tests if the column name is correctly concatenated to the values in the new columns.
+        Tests if the column name is correctly concatenated to the values in the new columns.
         """
         converted_df = add_string_version_columns_with_column_name(self.df)
+        # Check numeric column
         self.assertEqual(converted_df["s_Numeric_Column"].iloc[0], "numeric column 1")
-        self.assertEqual(converted_df["s_Date_Column"].iloc[0], "date column 2023-01-01")
-        self.assertEqual(converted_df["s_Mixed_Column"].iloc[2], "mixed column 2023-01-01")
+        self.assertEqual(converted_df["s_Numeric_Column"].iloc[2], "numeric column 3")
+        
+        # Check date column (in word format)
+        self.assertEqual(converted_df["s_Date_Column"].iloc[0], "date column January 01 2023")
+        self.assertEqual(converted_df["s_Date_Column"].iloc[1], "date column January 02 2023")
+        self.assertEqual(converted_df["s_Date_Column"].iloc[2], "date column January 03 2023")
+        
+        # Check mixed column
+        self.assertEqual(converted_df["s_Mixed_Column"].iloc[0], "mixed column 1")
+        self.assertEqual(converted_df["s_Mixed_Column"].iloc[2], "mixed column January 01 2023")
 
     def test_original_columns_unchanged(self) -> None:
         """
-        tests if the original columns remain unchanged.
+        Tests if the original columns remain unchanged.
         """
         converted_df = add_string_version_columns_with_column_name(self.df)
         pd.testing.assert_series_equal(converted_df["Numeric_Column"], self.df["Numeric_Column"])
         pd.testing.assert_series_equal(converted_df["Date_Column"], self.df["Date_Column"])
         pd.testing.assert_series_equal(converted_df["Text_Column"], self.df["Text_Column"])
         pd.testing.assert_series_equal(converted_df["Mixed_Column"], self.df["Mixed_Column"])
+
+    def test_no_extra_columns_for_strings(self) -> None:
+        """
+        Tests that no new column is added for string columns.
+        """
+        converted_df = add_string_version_columns_with_column_name(self.df)
+        self.assertNotIn("s_Text_Column", converted_df.columns)
+
+    def test_date_format(self) -> None:
+        """
+        Tests if date columns are correctly formatted in the new columns.
+        """
+        converted_df = add_string_version_columns_with_column_name(self.df)
+        self.assertEqual(converted_df["s_Date_Column"].iloc[0], "date column January 01 2023")
+        self.assertEqual(converted_df["s_Date_Column"].iloc[2], "date column January 03 2023")

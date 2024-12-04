@@ -1,31 +1,42 @@
 import unittest
 
-from typing import Dict, Tuple, Any
+from src.playbooks.default_runner_configs import (
+    ORIGINAL_FILENAME_KEY,
+    VALUE_KEY,
+    SCORE_KEY,
+)
+from typing import Dict, Any, Optional
 
 __all__ = ["get_overall_best_result"]
 
-def get_overall_best_result(col_res: Dict[str, Tuple[str, Any, float]]) -> Tuple[str, Any, float]:
+def get_overall_best_result(col_res: Dict[str, Dict[str, Any]]) -> Optional[Dict[str, Any]]:
     """
     Determines the overall best result across columns by finding the entry with the highest similarity score.
 
     Args:
-        col_res (Dict[str, Tuple[str, Any, float]]): A dictionary where:
+        col_res (Dict[str, Dict[str, Any]]): A dictionary where:
             - Keys are column names.
-            - Values are tuples containing (column_name, value, similarity_score).
+            - Values are dictionaries containing:
+                - ORIGINAL_FILENAME_KEY: The name of the original column.
+                - VALUE_KEY: The best matching value.
+                - SCORE_KEY: The highest similarity score.
 
     Returns:
-        Tuple[str, Any, float]: A tuple containing:
-            - The column name with the best score.
-            - The corresponding value.
-            - The highest similarity score.
+        Optional[Dict[str, Any]]: A dictionary containing:
+            - ORIGINAL_FILENAME_KEY: The column name with the best score.
+            - VALUE_KEY: The corresponding value.
+            - SCORE_KEY: The highest similarity score.
+            Returns None if col_res is empty.
     """
     overall_best_score = -1
     overall_best_result = None
 
-    for column, (column_name, value, best_score) in col_res.items():
+    for column, result in col_res.items():
+        # Extract the score and compare
+        best_score = result[SCORE_KEY]
         if best_score > overall_best_score:
             overall_best_score = best_score
-            overall_best_result = (column_name, value, overall_best_score)
+            overall_best_result = result
 
     return overall_best_result
 

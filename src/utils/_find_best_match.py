@@ -1,7 +1,13 @@
 import numpy as np
 import pandas as pd
-from typing import List, Tuple, Any
 import unittest
+
+from src.playbooks.default_runner_configs import (
+    ORIGINAL_FILENAME_KEY,
+    VALUE_KEY,
+    SCORE_KEY,
+)
+from typing import List, Tuple, Any
 
 
 __all__ = ["find_best_match"]
@@ -12,8 +18,8 @@ def find_best_match(
     column: str,
     df: pd.DataFrame,
     original_column: str,
-    textual_model
-) -> Tuple[str, Any, float]:
+    textual_model: Any
+) -> dict:
     """
     Finds the best match from a list of unique column values by calculating cosine similarity with a query embedding.
 
@@ -23,16 +29,20 @@ def find_best_match(
         column (str): The name of the current column being processed.
         df (pd.DataFrame): The DataFrame containing the data.
         original_column (str): The original column name (used if 's_' prefix is applied).
-        textual_model: The model used for embedding the textual values.
+        textual_model (Any): The model used for embedding the textual values.
 
     Returns:
-        Tuple[str, Any, float]: A tuple containing:
-            - The original column name.
-            - The best matching value.
-            - The highest similarity score.
+        dict: A dictionary containing:
+            - ORIGINAL_FILENAME_KEY (str): The name of the original column.
+            - VALUE_KEY (Any): The best matching value.
+            - SCORE_KEY (float): The highest similarity score.
     """
     best_score = -1
-    best_match = (original_column, None, best_score)
+    best_match = {
+        ORIGINAL_FILENAME_KEY: None,
+        VALUE_KEY: None,
+        SCORE_KEY: None
+    }
 
     for value in unique_col_values:
         # embed the column value
@@ -52,7 +62,12 @@ def find_best_match(
         # track the best match
         if similarity_score > best_score:
             best_score = similarity_score
-            best_match = (original_column, original_value, best_score)
+            # update the dictionary with new values
+            best_match.update({
+                ORIGINAL_FILENAME_KEY: original_column,
+                VALUE_KEY: original_value,
+                SCORE_KEY: best_score
+            })
 
     return best_match
 
