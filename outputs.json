@@ -1,7 +1,7 @@
 [
     {
         "column_name": "Product_Category",
-        "value": "product category Apparel",
+        "value": "Apparel",
         "row_ids": [
             "row2",
             "row3",
@@ -34,41 +34,41 @@
             "row51",
             "row52"
         ],
-        "best_score": np.float32(0.9834605)
+        "best_score": 0.9661468267440796
     },
     {
         "column_name": "Carrier_name",
-        "value": "carrier name UPS",
+        "value": "UPS",
         "row_ids": [
             "row2",
             "row3",
             "row4",
             "row5"
         ],
-        "best_score": np.float32(0.9805421)
+        "best_score": 1.0
     },
     {
         "column_name": "Days_from_shipment_to_delivery",
-        "value": "days from shipment to delivery 14",
+        "value": 14,
         "row_ids": [
             "row83"
         ],
-        "best_score": np.float32(0.98021775)
+        "best_score": 0.9802177548408508
     },
     {
         "column_name": "Days_from_shipment_to_delivery",
-        "value": "days from shipment to delivery 1",
+        "value": 1,
         "row_ids": [
             "row5"
         ],
-        "best_score": np.float32(0.97476774)
+        "best_score": 0.9747677445411682
     },
     {
         "column_name": "Days_from_shipment_to_delivery",
-        "value": "days from shipment to delivery 5",
+        "value": 5,
         "row_ids": [
             "row98"
         ],
-        "best_score": np.float32(0.976599)
+        "best_score": 0.9765989780426025
     }
 ]
