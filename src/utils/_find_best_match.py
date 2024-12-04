@@ -1,6 +1,12 @@
 import numpy as np
 import pandas as pd
+import pathlib
 import unittest
+import sys
+
+# append the root path to system paths for relative imports
+root_path = pathlib.Path.cwd()
+sys.path.append(str(root_path))
 
 from src.playbooks.default_runner_configs import (
     ORIGINAL_FILENAME_KEY,
@@ -66,7 +72,8 @@ def find_best_match(
             best_match.update({
                 ORIGINAL_FILENAME_KEY: original_column,
                 VALUE_KEY: original_value,
-                SCORE_KEY: best_score
+                SCORE_KEY: best_score, 
+                "value_used_for_comparison": value # TODO: ignore or delete. More for logging
             })
 
     return best_match

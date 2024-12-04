@@ -27,6 +27,7 @@ from src.utils import (
     get_overall_best_result,
     process_user_input,
     NumpyEncoder,
+    convert_date_columns,
 )
 
 # logger setup
@@ -72,7 +73,8 @@ if __name__ == "__main__":
     # filter the DataFrame
     logger.info(f"filtering DataFrame to include only the selected columns: {selected_cols}")
     df_filtered_cols = filter_data_by_cols(df= df_raw, cols= selected_cols)
-    df = add_string_version_columns_with_column_name(df= df_filtered_cols)
+    df_proc_date_cols = convert_date_columns(df= df_filtered_cols)
+    df = add_string_version_columns_with_column_name(df= df_proc_date_cols)
     logger.info(f"data filtered successfully. New data size: {df.shape[0]} rows, {df.shape[1]} columns")
 
     # step 3: get the list of queries
@@ -133,7 +135,7 @@ if __name__ == "__main__":
             # store the results for this query into the final query_results list
             query_results.append({
                 "column_name": f_col_name,
-                "value": int(f_value) if isinstance(f_value, (np.integer, int)) else float(f_value) if isinstance(f_value, (np.floating, float)) else f_value,  # convert numpy numbers to Python types
+                "value": f_value,
                 "row_ids": [f'row{row}' for row in adjusted_rows],
                 "best_score": float(f_best_score),
                 "user_query": q,
@@ -141,9 +143,9 @@ if __name__ == "__main__":
 
     # step 6: output the final results
     logger.info(f"query results: {query_results}")
-
+    ser_query_res = str(json.dumps(query_results, cls= NumpyEncoder, indent= 4)).strip()
     with open(OUTPUT_FILE_PATH, "w") as f:
-        json.dump(query_results, f, indent=4)
+        f.write(ser_query_res)
 
     logger.info(f"query results saved to {OUTPUT_FILE_PATH}")
 

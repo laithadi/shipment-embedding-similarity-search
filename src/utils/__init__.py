@@ -6,6 +6,7 @@ from ._add_string_version_columns_with_column_name import add_string_version_col
 from ._find_best_match import find_best_match
 from ._get_overall_best_result import get_overall_best_result
 from ._numpy_encoder import NumpyEncoder
+from ._convert_date_columns import convert_date_columns
 
 __all__ = [
     "process_user_input",
@@ -16,4 +17,5 @@ __all__ = [
     "find_best_match",
     "get_overall_best_result",
     "NumpyEncoder",
+    "convert_date_columns",
 ]
