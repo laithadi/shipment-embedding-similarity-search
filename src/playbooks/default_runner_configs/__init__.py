@@ -10,8 +10,8 @@ SIMILARITY_CALC_RES_DIR = pathlib.Path.cwd() / "src" / "playbooks" / "similarity
 
 filename = generate_versioned_filename(directory= OUTPUT_FILE_DIR)
 
-OUTPUT_FILE_PATH = OUTPUT_FILE_DIR / filename
-SIMILARITY_CALC_RES_PATH = SIMILARITY_CALC_RES_DIR / filename
+OUTPUT_FILE_PATH = OUTPUT_FILE_DIR / f"results_{filename}"
+SIMILARITY_CALC_RES_PATH = SIMILARITY_CALC_RES_DIR / f"detailed_summary_{filename}"
 
 ORIGINAL_FILENAME_KEY = "original_filename"
 VALUE_KEY = "value"
