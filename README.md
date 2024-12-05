@@ -1,45 +1,34 @@
-## Introduction & Data Analysis
+# Take Home Coding Challenge - DataGPT
 
-The dataset contains information about a list of orders. Each row provides details related to different aspects of an order's lifecycle.
+Hello DataGPT Team,
 
-### Columns:
-- **Date columns**:
-  - `Date`
-  - `Order_date`
-  - `Start_Shipping_Date`
-  - `Estimated_Arrival_Date`
-  - `Actual_Arrival_Date`
+My name is **Laith Adi**, and I am a Machine Learning Engineer and a soon-to-be PhD student. I am incredibly excited to be interviewing for your company and contributing to the development of your innovative product. The opportunity to engage with DataGPT's mission and explore this challenge has been both exciting and rewarding.
 
-- **Categorical columns**:
-  - `Order_ID`
-  - `Mode_Of_Transport`
-  - `Product_Category`
-  - `Priority`
-  - `Carrier_name`
-  - `Warehouse`
-  - `Supplier_Name`
-  - `Customer_Name`
-  - `Status`
+This is my submission for the **Take Home Coding Challenge**. In this README, I will:
+- Provide instructions for running the code and interpreting the results.
+- Outline my thought process as I approached the challenge.
+- Discuss the implementation details.
+- Highlight potential alternative approaches and their trade-offs.
 
-- **Numerical columns**:
-  - `Delivery_distance`
-  - `Days_from_order_to_shipment`
-  - `Days_from_shipment_to_delivery`
-  - `Days_from_order_to_delivery`
-  - `Days_between_estimated_and_actual_arrival`
+Thank you for this opportunity, and I look forward to hearing your feedback!
 
-### Key Data Insights:
-- All orders in the dataset are placed on the same date: **2023-07-03** (as indicated in the `Order_date` column).
-- Since all orders are placed on the same date, the `Start_Shipping_Date` is also uniform: **2023-07-03**. This suggests that each order took the same amount of time to process.
-- **Unique Order IDs**: There are only 14 unique order IDs (`Order_ID`), meaning that each order may appear multiple times in the dataset.
-- Each row for the same `Order_ID` corresponds to a different **date** (`Date`), reflecting the status of the delivery at that point in time.
-- The dataset also provides additional details such as:
-  - **Product Category** (e.g., Apparel, Groceries)
-  - **Mode of Transport** (e.g., Air Freight)
-  - **Priority** (e.g., Low, Medium, High)
-  - **Carrier**, **Supplier**, **Customer Name**
-  - **Warehouse Location**
-  - **Delivery Distance**
-  - **Order Status** (e.g., Delivered, Pending)
+Best regards,  
+Laith Adi
 
-For more detailed exploratory data analysis (EDA), check out [eda.ipynb](/exploratory_data_analysis/eda.ipynb).
+
+
+
+## Disclaimer
+
+Honest and transparent communication is something I genuinely live by, and I want to share that I did use ChatGPT to assist me with certain aspects of this project. Specifically, ChatGPT was used to help with:
+- Cleaning code (e.g., organizing imports, writing docstrings).
+- Writing test cases (even though they might not be a requirement for this challenge, writing tests is a habit I follow to ensure code reliability).
+- Adding `logger.info()` statements in the code for better traceability.
+- Formatting this README for clarity and professionalism.
+- Addressing minor, tedious Pythonic bugs.
+
+However, I want to clarify that ChatGPT **was not used** for:
+- The implementation of the code logic.
+- Code design (e.g., object-oriented programming structure, file/folder organization, and key implementation decisions).
+
+This project reflects my thought process, problem-solving ability, and skills. Thank you for giving me the opportunity to showcase my approach to this challenge!
