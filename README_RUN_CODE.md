@@ -283,9 +283,3 @@ However, I want to clarify that ChatGPT **was not used** for:
 - Code design (e.g., object-oriented programming structure, file/folder organization, and key implementation decisions).
 
 This project reflects my thought process, problem-solving ability, and skills. Thank you for giving me the opportunity to showcase my approach to this challenge!
-
-
-# side notes 
-
-- 1 is the min it found, when there is 0 
-- threshold so if no col is relevant to the query 

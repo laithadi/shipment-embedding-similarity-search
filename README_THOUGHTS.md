@@ -7,3 +7,10 @@ This project contains two README files to provide clear and detailed context:
 2. **`README_THOUGHTS.md`**: This file explains my thought process, design decisions, challenges faced, and alternative approaches considered while solving the coding challenge. It offers deeper insight into the logic and reasoning behind the implementation. 
 
 Feel free to refer to each README based on your purpose: whether you want to run the code or understand the rationale behind it!
+
+
+
+# side notes 
+
+- 1 is the min it found, when there is 0 
+- threshold so if no col is relevant to the query 
