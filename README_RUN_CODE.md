@@ -246,22 +246,3 @@ If we look at the first object in the list in the JSON example above, for the **
 
 
 This JSON allows you to see how the query matched against each column and value in the dataset, providing detailed insight into the similarity calculation process.
-
-
-
-
-
-## Disclaimer
-
-Honest and transparent communication is something I genuinely live by, and I want to share that I did use ChatGPT to assist me with certain aspects of this project. Specifically, ChatGPT was used to help with:
-- Cleaning code (e.g., organizing imports, writing docstrings).
-- Writing test cases (even though they might not be a requirement for this challenge, writing tests is a habit I follow to ensure code reliability).
-- Adding `logger.info()` statements in the code for better traceability.
-- Formatting this README for clarity and professionalism.
-- Addressing minor, tedious Pythonic bugs.
-
-However, I want to clarify that ChatGPT **was not used** for:
-- The implementation of the code logic.
-- Code design (e.g., object-oriented programming structure, file/folder organization, and key implementation decisions).
-
-This project reflects my thought process, problem-solving ability, and skills. Thank you for giving me the opportunity to showcase my approach to this challenge!
