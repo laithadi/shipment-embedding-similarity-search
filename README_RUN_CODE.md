@@ -8,24 +8,6 @@ This project contains two README files to provide clear and detailed context:
 
 Feel free to refer to each README based on your purpose: whether you want to run the code or understand the rationale behind it!
 
-
-# Take Home Coding Challenge - DataGPT
-
-Hello DataGPT Team,
-
-My name is **Laith Adi**, and I am a Machine Learning Engineer and a soon-to-be PhD student. I am incredibly excited to be interviewing for your company and contributing to the development of your innovative product. The opportunity to engage with DataGPT's mission and explore this challenge has been both exciting and rewarding.
-
-This is my submission for the **Take Home Coding Challenge**. In this README, I will:
-- Provide instructions for running the code and interpreting the results.
-- Outline my thought process as I approached the challenge.
-- Discuss the implementation details.
-- Highlight potential alternative approaches and their trade-offs.
-
-Thank you for this opportunity, and I look forward to hearing your feedback!
-
-Best regards,  
-Laith Adi
-
 ## How to Run the Code and Interpret the Results
 
 ### Project Structure

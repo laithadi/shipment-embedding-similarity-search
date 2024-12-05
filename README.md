@@ -1,4 +1,17 @@
-### Note: Understanding the Two README Files
+# Take Home Coding Challenge - DataGPT
+
+Hello DataGPT Team,
+
+My name is **Laith Adi**, and I am a Machine Learning Engineer and a soon-to-be PhD student. I am incredibly excited to be interviewing for your company and contributing to the development of your innovative product. The opportunity to engage with DataGPT's mission and explore this challenge has been both exciting and rewarding.
+
+This is my submission for the **Take Home Coding Challenge**. 
+
+Thank you for this opportunity, and I look forward to hearing your feedback!
+
+Best regards,  
+Laith Adi
+
+# Note: Understanding the Two README Files
 
 This project contains two README files to provide clear and detailed context:
 
