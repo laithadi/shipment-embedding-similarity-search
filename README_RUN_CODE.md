@@ -48,6 +48,7 @@ This project uses the **uv Python package manager** ([GitHub Repository](https:/
 
 After completing these steps, the environment should be fully set up and ready for you to run the code.
 
+
 ### User Input
 
 The challenge requires three inputs from the user:
@@ -80,6 +81,8 @@ The challenge requires three inputs from the user:
 
 Make sure to fill out these files before running the code. The system uses these inputs to process the queries and generate results.
 
+
+
 ### Running the Code
 
 Once you have set up everything, you are ready to execute the code. Run the following command in your terminal:
@@ -88,9 +91,13 @@ Once you have set up everything, you are ready to execute the code. Run the foll
 python src/playbook/runner.py
 ```
 
+
+
 ### Logs and Outputs
 
 While the code is running, keep an eye on your terminal for logs being printed. These logs provide real-time updates on the progress of the code execution.
+
+
 
 ### Outputs
 
@@ -105,6 +112,8 @@ The results of the execution are written to two directories:
 - It is useful for debugging or analyzing how query similarities were computed.
 - The file is named using a format like `YYYYMMDD_HHMMSS_v#.json` for easy identification of runs.
     - The version number `v#` is independent of `src/playbook/outputs/` JSON version. Be mindful when deleting files in one of the output folders and not the other. 
+
+
 
 ### Interpreting the Results
 
@@ -231,6 +240,8 @@ An example JSON structure is as follows:
     }
 }
 ```
+
+
 
 ### Explanation of the JSON Structure
 
