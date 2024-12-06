@@ -1,7 +1,10 @@
 import pandas as pd
+import logging 
 import unittest
 
 __all__ = ["convert_date_columns"]
+
+logger = logging.getLogger(__name__)
 
 def convert_date_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -24,9 +27,9 @@ def convert_date_columns(df: pd.DataFrame) -> pd.DataFrame:
                 # only update column if it contains valid dates (at least one non-NaT value)
                 if not converted_col.isna().all():
                     df[col] = converted_col
-                    print(f"Converted column '{col}' to datetime.")
+                    logger.info(f"Converted column '{col}' to datetime.")
             except Exception as e:
-                print(f"Could not convert column '{col}' to datetime: {e}")
+                logger.info(f"Could not convert column '{col}' to datetime: {e}")
     return df
 
 
