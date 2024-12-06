@@ -10,7 +10,7 @@ root_path = pathlib.Path.cwd()
 sys.path.append(str(root_path))
 
 from src.ai_utils import DistilBertTextEmbedding
-from src.playbooks.default_runner_configs import (
+from default_configs import (
     DATA_PATH,
     USER_QUERY_INPUT,
     USER_DF_COLS_INPUT,
@@ -40,8 +40,6 @@ logger = logging.getLogger(__name__)
 
 # model initialization
 textual_model = DistilBertTextEmbedding()
-numerical_model = ...  # to be implemented - IGNORE 
-date_model = ...       # to be implemented - IGNORE 
 
 
 

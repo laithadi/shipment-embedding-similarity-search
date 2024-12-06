@@ -1,0 +1,116 @@
+[
+    {
+        "column_name": "Product_Category",
+        "value": "Apparel",
+        "row_ids": [
+            "row2",
+            "row3",
+            "row4",
+            "row5",
+            "row16",
+            "row17",
+            "row18",
+            "row19",
+            "row20",
+            "row21",
+            "row22",
+            "row23",
+            "row24",
+            "row25",
+            "row26",
+            "row27",
+            "row28",
+            "row29",
+            "row35",
+            "row36",
+            "row37",
+            "row38",
+            "row39",
+            "row40",
+            "row47",
+            "row48",
+            "row49",
+            "row50",
+            "row51",
+            "row52"
+        ],
+        "best_score": 0.9661468267440796,
+        "user_query": "apparel products"
+    },
+    {
+        "column_name": "Carrier_name",
+        "value": "UPS",
+        "row_ids": [
+            "row2",
+            "row3",
+            "row4",
+            "row5"
+        ],
+        "best_score": 1.0,
+        "user_query": "UPS"
+    },
+    {
+        "column_name": "Days_from_shipment_to_delivery",
+        "value": 14,
+        "row_ids": [
+            "row83"
+        ],
+        "best_score": 0.9802177548408508,
+        "user_query": "maximum days from shipment to delivery"
+    },
+    {
+        "column_name": "Days_from_shipment_to_delivery",
+        "value": 1,
+        "row_ids": [
+            "row5"
+        ],
+        "best_score": 0.9747677445411682,
+        "user_query": "minimum days from shipment to delivery"
+    },
+    {
+        "column_name": "Days_from_shipment_to_delivery",
+        "value": 5,
+        "row_ids": [
+            "row98"
+        ],
+        "best_score": 0.9765989780426025,
+        "user_query": "shipment to delivery days less than 5"
+    },
+    {
+        "column_name": "Estimated_Arrival_Date",
+        "value": "2023-07-05",
+        "row_ids": [
+            "row6",
+            "row7",
+            "row8",
+            "row9",
+            "row10",
+            "row11",
+            "row12",
+            "row13",
+            "row14",
+            "row15",
+            "row16",
+            "row17",
+            "row18",
+            "row19",
+            "row20",
+            "row21",
+            "row22",
+            "row23",
+            "row24",
+            "row25",
+            "row26",
+            "row27",
+            "row28",
+            "row29",
+            "row30",
+            "row31",
+            "row32",
+            "row33",
+            "row34"
+        ],
+        "best_score": 1.0,
+        "user_query": "estimated arrival date on july 5 2023"
+    }
+]

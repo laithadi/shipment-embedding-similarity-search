@@ -1,0 +1,194 @@
+{
+    "apparel products": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "Medium",
+            "similarity_score": 0.9340893626213074,
+            "value_used_for_comparison": "Medium"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "BlueWater Shipping",
+            "similarity_score": 0.9601719379425049,
+            "value_used_for_comparison": "BlueWater Shipping"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Apparel",
+            "similarity_score": 0.9661468267440796,
+            "value_used_for_comparison": "Apparel"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 2,
+            "similarity_score": 0.9350993633270264,
+            "value_used_for_comparison": "days from shipment to delivery 2"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-05",
+            "similarity_score": 0.9144634008407593,
+            "value_used_for_comparison": "estimated arrival date on July 5 2023"
+        }
+    },
+    "UPS": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "High",
+            "similarity_score": 0.9838942289352417,
+            "value_used_for_comparison": "High"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "UPS",
+            "similarity_score": 1.0,
+            "value_used_for_comparison": "UPS"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Groceries",
+            "similarity_score": 0.9827259182929993,
+            "value_used_for_comparison": "Groceries"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 2,
+            "similarity_score": 0.9514382481575012,
+            "value_used_for_comparison": "days from shipment to delivery 2"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-05",
+            "similarity_score": 0.9332790374755859,
+            "value_used_for_comparison": "estimated arrival date on July 5 2023"
+        }
+    },
+    "maximum days from shipment to delivery": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "Medium",
+            "similarity_score": 0.933011531829834,
+            "value_used_for_comparison": "Medium"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "R+L Carriers",
+            "similarity_score": 0.9478660225868225,
+            "value_used_for_comparison": "R+L Carriers"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Apparel",
+            "similarity_score": 0.9352486729621887,
+            "value_used_for_comparison": "Apparel"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 14,
+            "similarity_score": 0.9802177548408508,
+            "value_used_for_comparison": "days from shipment to delivery 14"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-04",
+            "similarity_score": 0.9486714601516724,
+            "value_used_for_comparison": "estimated arrival date on July 4 2023"
+        }
+    },
+    "minimum days from shipment to delivery": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "Medium",
+            "similarity_score": 0.9204584956169128,
+            "value_used_for_comparison": "Medium"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "R+L Carriers",
+            "similarity_score": 0.9365407228469849,
+            "value_used_for_comparison": "R+L Carriers"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Apparel",
+            "similarity_score": 0.9199613928794861,
+            "value_used_for_comparison": "Apparel"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 1,
+            "similarity_score": 0.9747677445411682,
+            "value_used_for_comparison": "days from shipment to delivery 1"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-04",
+            "similarity_score": 0.9371574521064758,
+            "value_used_for_comparison": "estimated arrival date on July 4 2023"
+        }
+    },
+    "shipment to delivery days less than 5": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "Medium",
+            "similarity_score": 0.9253188371658325,
+            "value_used_for_comparison": "Medium"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "R+L Carriers",
+            "similarity_score": 0.9352681040763855,
+            "value_used_for_comparison": "R+L Carriers"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Groceries",
+            "similarity_score": 0.9169345498085022,
+            "value_used_for_comparison": "Groceries"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 5,
+            "similarity_score": 0.9765989780426025,
+            "value_used_for_comparison": "days from shipment to delivery 5"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-04",
+            "similarity_score": 0.935124397277832,
+            "value_used_for_comparison": "estimated arrival date on July 4 2023"
+        }
+    },
+    "estimated arrival date on july 5 2023": {
+        "Priority": {
+            "original_filename": "Priority",
+            "value": "Low",
+            "similarity_score": 0.9305211305618286,
+            "value_used_for_comparison": "Low"
+        },
+        "Carrier_name": {
+            "original_filename": "Carrier_name",
+            "value": "Estes Express",
+            "similarity_score": 0.9422879219055176,
+            "value_used_for_comparison": "Estes Express"
+        },
+        "Product_Category": {
+            "original_filename": "Product_Category",
+            "value": "Apparel",
+            "similarity_score": 0.9332203269004822,
+            "value_used_for_comparison": "Apparel"
+        },
+        "Days_from_shipment_to_delivery": {
+            "original_filename": "Days_from_shipment_to_delivery",
+            "value": 14,
+            "similarity_score": 0.9593583345413208,
+            "value_used_for_comparison": "days from shipment to delivery 14"
+        },
+        "Estimated_Arrival_Date": {
+            "original_filename": "Estimated_Arrival_Date",
+            "value": "2023-07-05",
+            "similarity_score": 1.0,
+            "value_used_for_comparison": "estimated arrival date on July 5 2023"
+        }
+    }
+}

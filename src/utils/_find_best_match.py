@@ -8,7 +8,7 @@ import sys
 root_path = pathlib.Path.cwd()
 sys.path.append(str(root_path))
 
-from src.playbooks.default_runner_configs import (
+from default_configs import (
     ORIGINAL_FILENAME_KEY,
     VALUE_KEY,
     SCORE_KEY,
