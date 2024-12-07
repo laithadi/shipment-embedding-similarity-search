@@ -336,7 +336,7 @@ A potential solution is to add a **post-processing step** to validate numerical 
 
 This adjustment ensures correctness without overcomplicating the implementation and keeps the solution straightforward yet effective.
 
-## Final Remarks
+# Final Remarks
 
 This challenge offered a unique opportunity to showcase a blend of technical expertise, thoughtful design, and practical problem-solving. The solution reflects a deliberate balance between simplicity and functionality, demonstrating the ability to deliver results while maintaining clarity and scalability. By leveraging proven techniques like cosine similarity and versatile tools like DistilBERT, the implementation provides a robust foundation for query matching tasks across varied data types.
 
