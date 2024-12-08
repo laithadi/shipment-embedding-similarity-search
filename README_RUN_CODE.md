@@ -63,7 +63,7 @@ The challenge requires three inputs from the user:
    - The data is located in the `data` folder and contains the `takehomedataset.csv` file provided as part of this challenge.
 
 2. **User Queries**  
-   - In the `playbook/user_input` folder, you will find a file named `user_queries.txt`.  
+   - In the `user_input/` folder, you will find a file named `user_queries.txt`.  
    - Enter each query on a separate line. Below is an example of what the file might look like:
      ```
      apparel products
@@ -75,7 +75,7 @@ The challenge requires three inputs from the user:
      ```
 
 3. **Columns to Include**  
-   - In the same `playbook/user_input` folder, there is a file named `df_cols.txt`.  
+   - In the same `user_input/` folder, there is a file named `df_cols.txt`.  
    - Enter the names of the dataset columns you want to include in this task. Each column name should be on a new line. Below is an example:
      ```
      Priority
@@ -94,7 +94,7 @@ Make sure to fill out these files before running the code. The system uses these
 Once you have set up everything, you are ready to execute the code. Run the following command in your terminal:
 
 ```bash
-python src/playbook/runner.py
+python playbooks/runner.py
 ```
 
 
@@ -117,7 +117,7 @@ The results of the execution are written to two directories:
 - This directory contains intermediate results related to similarity calculations.
 - It is useful for debugging or analyzing how query similarities were computed.
 - The file is named using a format like `YYYYMMDD_HHMMSS_v#.json` for easy identification of runs.
-    - The version number `v#` is independent of `src/playbook/outputs/` JSON version. Be mindful when deleting files in one of the output folders and not the other. 
+    - The version number `v#` is independent of `results/outputs/` JSON version. Be mindful when deleting files in one of the output folders and not the other. 
 
 
 
