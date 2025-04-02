@@ -172,7 +172,7 @@ wheels = [
 ]
 
 [[package]]
-name = "datagpt-take-home-challenge"
+name = "shipment-embedding-similarity-search"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
