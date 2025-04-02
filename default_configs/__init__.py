@@ -2,7 +2,7 @@ import pathlib
 
 from ._generate_versioned_filename_for_outputs import generate_versioned_filename
 
-DATA_PATH = pathlib.Path.cwd() / "data" / "take_home_dataset.csv"
+DATA_PATH = pathlib.Path.cwd() / "data" / "shipment_dataset.csv"
 USER_QUERY_INPUT = pathlib.Path.cwd() / "user_input" / "user_queries.txt"
 USER_DF_COLS_INPUT = pathlib.Path.cwd() / "user_input" / "df_cols.txt"
 OUTPUT_FILE_DIR = pathlib.Path.cwd() / "results" / "outputs" 
